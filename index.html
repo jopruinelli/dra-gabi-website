@@ -1,539 +1,1018 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Dentista infantil e odontopediatra em Balneário Camboriú. Atendimento lúdico, acolhedor e especializado para crianças e autismo." name="description"/>
-<link href="img/icons/favicon.ico" rel="icon" type="image/icon"/>
-<title>Dentista Infantil em Balneário Camboriú | Dra. Gabriela Cechinatto</title>
-<link rel="canonical" href="https://gabrielacechinatto.com.br/" />
-<style>
-    *, *::before, *::after {
-      box-sizing: border-box;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Odontopediatra em Balneário Camboriú. Atendimento infantil, lúdico, acolhedor e inclusivo no Edifício Central Park, Centro de Balneário Camboriú." />
+  <meta name="theme-color" content="#E09C70" />
+  <link rel="icon" href="img/icons/favicon.ico" type="image/x-icon" />
+  <link rel="canonical" href="https://gabrielacechinatto.com.br/" />
+
+  <meta property="og:title" content="Dra. Gabriela Cechinatto | Odontopediatria em Balneário Camboriú" />
+  <meta property="og:description" content="Atendimento infantil lúdico, acolhedor e inclusivo no Centro de Balneário Camboriú." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="img/quem-sou-eu.webp" />
+
+  <title>Dentista Infantil em Balneário Camboriú | Dra. Gabriela Cechinatto</title>
+
+  <style>
+    :root {
+      --cream: #FFF6F1;
+      --cream-2: #F2EBE9;
+      --peach-soft: #F2D4B8;
+      --peach: #E09C70;
+      --caramel: #BF9678;
+      --brown: #5C4435;
+      --white: #FFFFFF;
+      --shadow: 0 18px 50px rgba(92, 68, 53, .12);
+      --shadow-soft: 0 10px 30px rgba(92, 68, 53, .08);
+      --radius-xl: 32px;
+      --radius-lg: 22px;
+      --container: 1120px;
     }
 
-   html, body {
-  overflow-x: hidden;
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
+
     body {
       margin: 0;
-      font-family: sans-serif;
-      background-color: #fff6f1;
-      color: #5c4435;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(242, 212, 184, .65), transparent 38rem),
+        linear-gradient(180deg, var(--cream), #fffaf7 45%, var(--cream));
+      color: var(--brown);
+      overflow-x: hidden;
     }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image: url("img/background-gabi.jpeg");
+      background-repeat: repeat;
+      background-size: 150px;
+      opacity: .18;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255,246,241,.86), rgba(255,246,241,.62)),
+        radial-gradient(circle at 85% 12%, rgba(224,156,112,.20), transparent 18rem);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(var(--container), calc(100% - 2rem));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 1rem;
+      background: var(--brown);
+      color: var(--white);
+      padding: .75rem 1rem;
+      border-radius: 999px;
+      z-index: 1000;
+    }
+
+    .skip-link:focus { left: 1rem; }
 
     header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 246, 241, .82);
+      border-bottom: 1px solid rgba(191, 150, 120, .18);
+    }
+
+    .nav {
       display: flex;
+      align-items: center;
       justify-content: space-between;
+      gap: 1.25rem;
+      padding: .85rem 0;
+    }
+
+    .brand {
+      display: inline-flex;
       align-items: center;
-      padding: 1rem 2rem;
+      gap: .7rem;
+      min-width: 0;
     }
 
-    header img {
-      width: 60px;
-      max-width: 100%;
-    }
-
-    .header__acoes a {
-      background-color: #da8e65;
-      color: white;
-      padding: 1rem 1.5rem;
-      border-radius: 40px;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-
-  /* Remover cor azul padrão dos links */
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-    .banner-principal {
-      text-align: center;
-      padding: 0.2rem 0.2rem;
-    }
-
-    .section {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1rem;
-      gap: 1rem;
-      width: 100%;
-      margin: 0;
-    }
-
-    .section .img {
-      width: 60%;
-      padding: 0rem;
-      text-align: center;
-      box-sizing: border-box;
-    }
-
-    .section .img img {
-      width: 100%;
+    .brand img {
+      width: 54px;
+      height: 54px;
       border-radius: 16px;
-      align-items: center;
+      box-shadow: var(--shadow-soft);
     }
 
-    .section .content {
-      width: 30%;
-      padding: 2rem;
-      box-sizing: border-box;
-    }
-
-    .section h1 {
-      color: #da8e65;
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin-bottom: 1rem;
-    }
-
-    .section h2 {
-      color: #da8e65;
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin-bottom: 1rem;
-    }
-
-    .section p {
+    .brand strong {
+      display: block;
+      color: var(--brown);
+      line-height: 1.1;
       font-size: 1rem;
-      line-height: 1.6;
-      margin: 0.5rem 0;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--caramel);
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-top: .1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      color: rgba(92, 68, 53, .76);
+      font-size: .95rem;
+    }
+
+    .nav-links a:not(.btn) {
+      padding: .72rem .9rem;
+      border-radius: 999px;
+    }
+
+    .nav-links a:not(.btn):hover {
+      background: rgba(242, 212, 184, .42);
+      color: var(--brown);
     }
 
     .btn {
-      background-color: #da8e65;
-      border: none;
-      padding: 1.5rem 3rem;
-      color: white;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 1rem;
-      cursor: pointer;
-      margin-top: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      min-height: 48px;
+      padding: .85rem 1.25rem;
+      border: 0;
+      border-radius: 999px;
+      background: var(--peach);
+      color: var(--white);
+      font-weight: 750;
+      box-shadow: 0 12px 24px rgba(224, 156, 112, .25);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      white-space: nowrap;
     }
 
-    .botao-whatsapp {
-      display: inline-block;
-      background-color: #25D366;
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 1.1rem;
-      margin-top: 2rem;
+    .btn:hover {
+      transform: translateY(-2px);
+      background: #d98d5f;
+      box-shadow: 0 16px 30px rgba(224, 156, 112, .32);
     }
 
-    .redes {
+    .btn--ghost {
+      background: rgba(255,255,255,.72);
+      color: var(--brown);
+      border: 1px solid rgba(191, 150, 120, .24);
+      box-shadow: none;
+    }
+
+    .btn--ghost:hover {
+      background: var(--white);
+      box-shadow: var(--shadow-soft);
+    }
+
+    main { display: block; }
+
+    .hero {
+      padding: clamp(2rem, 5vw, 5.5rem) 0 clamp(2rem, 5vw, 4.5rem);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr);
+      gap: clamp(1.5rem, 4vw, 4rem);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      width: fit-content;
+      padding: .5rem .8rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(191, 150, 120, .22);
+      color: var(--caramel);
+      font-weight: 750;
+      font-size: .88rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      margin: 1.15rem 0 1rem;
+      color: var(--brown);
+      font-size: clamp(2.35rem, 6vw, 5rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+
+    h1 span { color: var(--peach); }
+
+    .lead {
+      max-width: 640px;
+      color: rgba(92, 68, 53, .82);
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      line-height: 1.72;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      align-items: center;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: clamp(.8rem, 1.6vw, 1.1rem);
+      border-radius: calc(var(--radius-xl) + 12px);
+      background: rgba(255,255,255,.62);
+      border: 1px solid rgba(255,255,255,.85);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      right: -26px;
+      top: 10%;
+      width: 115px;
+      height: 75%;
+      border: 10px solid rgba(191, 150, 120, .55);
+      border-left: 0;
+      border-radius: 0 80px 80px 0;
+      z-index: -1;
+    }
+
+    .hero-carousel {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(255,246,241,.92), rgba(242,212,184,.72));
+    }
+
+    .hero-carousel img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      opacity: 0;
+      transform: scale(1.015);
+      animation: heroCarousel 15s infinite ease-in-out;
+      border-radius: var(--radius-xl);
+    }
+
+    .hero-carousel img:nth-child(2) { animation-delay: 5s; }
+    .hero-carousel img:nth-child(3) { animation-delay: 10s; }
+
+    @keyframes heroCarousel {
+      0% { opacity: 0; transform: scale(1.015); }
+      8% { opacity: 1; transform: scale(1); }
+      30% { opacity: 1; transform: scale(1); }
+      38% { opacity: 0; transform: scale(1.015); }
+      100% { opacity: 0; transform: scale(1.015); }
+    }
+
+    .hero-card img {
+      display: block;
+      border-radius: var(--radius-xl);
+    }
+
+    .logo-strip {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: 50%;
+      bottom: 1.45rem;
+      transform: translateX(-50%);
+      width: min(340px, 72%);
+      padding: .75rem 1rem;
+      border-radius: 999px;
+      background: rgba(255,246,241,.88);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .logo-strip img {
+      width: 180px;
+      max-width: 60%;
+      height: auto;
+      border-radius: 0;
+      aspect-ratio: auto;
+      object-fit: contain;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .trust-item {
+      padding: 1rem;
+      background: rgba(255,255,255,.64);
+      border: 1px solid rgba(191, 150, 120, .18);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--peach);
+      font-size: 1.05rem;
+      margin-bottom: .3rem;
+    }
+
+    .trust-item span {
+      display: block;
+      color: rgba(92, 68, 53, .72);
+      font-size: .9rem;
+      line-height: 1.35;
+    }
+
+    section { padding: clamp(2.6rem, 6vw, 5rem) 0; }
+
+    .section-head {
+      max-width: 760px;
+      margin: 0 auto 2rem;
       text-align: center;
-      padding: 2rem 1rem;
     }
 
-    .redes h3 {
-      font-size: 1.4rem;
+    .section-head h2 {
+      color: var(--brown);
+      font-size: clamp(2rem, 4.5vw, 3.35rem);
+      line-height: 1.05;
+      letter-spacing: -.04em;
+      margin-bottom: .8rem;
+    }
+
+    .section-head h2 span { color: var(--peach); }
+
+    .section-head p {
+      color: rgba(92, 68, 53, .74);
+      line-height: 1.7;
+      font-size: 1.06rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .service-card, .location-card, .about-card, .social-card {
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(191, 150, 120, .18);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .service-card {
+      padding: 1.35rem;
+      min-height: 205px;
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--peach-soft), var(--cream));
+      color: var(--peach);
+      font-size: 1.5rem;
       margin-bottom: 1rem;
     }
 
-    .icones {
+    .service-card h3 {
+      color: var(--brown);
+      font-size: 1.15rem;
+      margin-bottom: .55rem;
+    }
+
+    .service-card p {
+      color: rgba(92, 68, 53, .72);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .about-card { padding: clamp(1.25rem, 3vw, 2.2rem); }
+
+    .about-card h2 {
+      color: var(--brown);
+      font-size: clamp(1.85rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -.04em;
+    }
+
+    .about-card h2 span { color: var(--peach); }
+
+    .about-card p {
+      color: rgba(92, 68, 53, .76);
+      line-height: 1.75;
+      font-size: 1.03rem;
+    }
+
+    .about-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.4rem 0 0;
+      display: grid;
+      gap: .75rem;
+    }
+
+    .about-list li {
       display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 1rem;
+      gap: .65rem;
+      align-items: flex-start;
+      padding: .8rem;
+      border-radius: 18px;
+      background: rgba(242, 212, 184, .28);
     }
 
-    .icones img {
-      width: 100px;
+    .about-list li::before {
+      content: "✓";
+      flex: 0 0 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--peach);
+      color: white;
+      font-size: .85rem;
+      font-weight: 900;
+      margin-top: .12rem;
     }
 
-    footer {
-      background-color: #fff2e8;
+    .photo-card {
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      min-height: 420px;
+      background: var(--peach-soft);
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .location-card {
+      overflow: hidden;
+    }
+
+    .location-content {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 0;
+      align-items: stretch;
+    }
+
+    .location-info {
+      padding: clamp(1.4rem, 3vw, 2.4rem);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .45rem .72rem;
+      border-radius: 999px;
+      background: rgba(224,156,112,.13);
+      color: #a96e4d;
+      font-weight: 800;
+      font-size: .88rem;
+      margin-bottom: 1rem;
+    }
+
+    .location-info h2 {
+      color: var(--brown);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -.04em;
+      margin-bottom: 1rem;
+    }
+
+    .address {
+      font-style: normal;
+      color: rgba(92,68,53,.78);
+      line-height: 1.8;
+      font-size: 1.07rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .map-wrap {
+      min-height: 420px;
+      background: linear-gradient(135deg, rgba(242,212,184,.55), rgba(255,246,241,.9));
+      position: relative;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+    }
+
+    .map-card {
+      width: min(360px, 100%);
+      padding: 1.3rem;
+      border-radius: var(--radius-xl);
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(191,150,120,.2);
+      box-shadow: var(--shadow-soft);
       text-align: center;
-      font-size: 0.9rem;
-      padding: 2rem 1rem;
-      color: #5c4435;
-      margin-top: 3rem;
     }
 
-    @media screen and (max-width: 768px) {
-      .section {
-        flex-direction: column;
-      }
+    .map-card img {
+      width: 126px;
+      margin: 0 auto 1rem;
+      border-radius: 32px;
+      box-shadow: var(--shadow-soft);
     }
-  
-.fade-slide {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  width: 100%;
-}
-.fade-slide.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.section .img img {
-  max-width: 100%;
-  height: auto;
-  /* 100%; */
-  height: auto;
-  border-radius: 16px;
-}
 
-.rodape {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background-color: #fcefe6;
-  padding: 2rem;
-  color: #5c4435;
-}
+    .map-card strong {
+      display: block;
+      color: var(--brown);
+      font-size: 1.2rem;
+      margin-bottom: .35rem;
+    }
 
-.rodape__coluna {
-  flex: 1 1 22%; /* padrão para as demais */
-  min-width: 200px;
-  margin-bottom: 1.5rem;
-}
+    .map-card p {
+      color: rgba(92,68,53,.72);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
 
-.rodape__coluna:first-child {
-  flex: 2 1 30%; /* primeira coluna mais larga */
-}
+    .cta {
+      background: linear-gradient(135deg, rgba(224,156,112,.95), rgba(191,150,120,.92));
+      color: var(--white);
+      border-radius: calc(var(--radius-xl) + 10px);
+      padding: clamp(1.8rem, 5vw, 3.2rem);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
 
-.rodape__titulo {
-  color: #da8e65;
-  font-size: 1.8rem;
-  margin: 0;
-}
+    .cta::before {
+      content: "";
+      position: absolute;
+      inset: -40% -10% auto auto;
+      width: 420px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: rgba(255,255,255,.13);
+    }
 
-.rodape h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.0rem;
-}
+    .cta-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+    }
 
-.rodape p {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
+    .cta h2 {
+      color: var(--white);
+      font-size: clamp(2rem, 4.6vw, 3.4rem);
+      line-height: 1.02;
+      letter-spacing: -.045em;
+      margin-bottom: .75rem;
+    }
 
+    .cta p {
+      max-width: 660px;
+      color: rgba(255,255,255,.88);
+      line-height: 1.65;
+      margin-bottom: 0;
+      font-size: 1.08rem;
+    }
 
+    .cta .btn {
+      background: var(--white);
+      color: var(--brown);
+      box-shadow: 0 16px 30px rgba(92,68,53,.18);
+    }
 
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-  .header__acoes a {
-    display: block;
-    margin-top: 1rem;
-  }
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      max-width: 780px;
+      margin: 0 auto;
+    }
 
-  h1 {
-    font-size: 1.2rem;
-  }
-}
-   @media (max-width: 768px) {
-  .content {
-    flex-direction: column !important;
-    align-items: center;
-    text-align: center;
-  }
+    .social-card {
+      padding: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
 
-  .content img {
-    width: 90%;
-    max-width: 300px;
-    height: auto;
-    margin-bottom: 1rem;
-  }
+    .social-card img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      border-radius: 16px;
+      background: var(--cream);
+      padding: .45rem;
+    }
 
-  .content > div {
-    width: 100%;
-  }
-}
-   /* Ajuste base para .content */
-.content {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 1rem;
-}
+    .social-card strong {
+      display: block;
+      color: var(--brown);
+      font-size: 1.1rem;
+    }
 
-/* Ajustes para mobile */
-@media (max-width: 768px) {
-  .content {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-  }
+    .social-card span {
+      color: rgba(92,68,53,.68);
+      font-size: .95rem;
+    }
 
-  .content img {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  .content > div {
-    width: 100% !important;
-  }
-}
-   /* Corrigir especificamente a imagem quem-sou-eu.webp */
-img[src*="quem-sou-eu.webp"] {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  padding: 1rem 0;
-}
-
-/* Redefinir padding/margin no content também */
-@media (max-width: 768px) {
-  .content {
-    padding: 0 1rem !important;
-  }
-}
-   /* Tornar responsiva a imagem logo-gabi.webp */
-img[src*="logo-gabi.webp"] {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-   /* Impedir que .content.fade.slide reduza de largura */
-.content.fade-slide {
-  min-width: 320px;
-  width: 100%;
-  max-width: 560px;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-   /* Correção para manter imagem à esquerda e texto à direita em telas grandes */
-@media (min-width: 769px) {
-  .section {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-  }
-
-  .section .img {
-    width: 50%;
-    order: 1;
-  }
-
-  .section .content {
-    width: 50%;
-    order: 2;
-  }
-}
-   /* Reduzir tamanho da logo de forma responsiva com prioridade */
-  
-
-/* Versão única e correta do estilo da logo */
-.banner-principal img {
-  max-width: 50% !important;
-  margin: 0rem 0;
-  height: auto !important;
-  margin: 0 auto !important;
-  display: block !important;
-}
-  
-
-    /* Instagram feed styling */
     #instagram {
-      text-align: center;
-      background-color: #fff6f1;
       max-width: 100%;
       margin: 0 auto;
-      padding: 2rem 0;
+      padding: 0 0 clamp(2.6rem, 6vw, 5rem);
+      text-align: center;
     }
-    /* Center and size the Instagram widget */
+
     .elfsight-app-75af3fa5-6961-4728-8885-7cfb75dd7c6e {
-      max-width: 600px;
-      width: 100%;
+      width: min(680px, calc(100% - 2rem));
       margin: 0 auto;
       display: inline-block;
     }
 
+    footer {
+      background: rgba(255,242,232,.92);
+      border-top: 1px solid rgba(191,150,120,.18);
+      padding: 2.4rem 0;
+    }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-</style>
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .95fr .95fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .footer-logo img {
+      width: min(320px, 100%);
+      margin-bottom: .8rem;
+    }
+
+    .footer-grid h3 {
+      color: var(--peach);
+      margin-bottom: .55rem;
+      font-size: 1rem;
+    }
+
+    .footer-grid p, .footer-grid address {
+      font-style: normal;
+      color: rgba(92,68,53,.72);
+      line-height: 1.65;
+      margin-bottom: .35rem;
+    }
+
+    .credits {
+      margin-top: 1.8rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(191,150,120,.18);
+      color: rgba(92,68,53,.62);
+      font-size: .88rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    .fade-slide {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .fade-slide.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 940px) {
+      .hero-grid,
+      .about-grid,
+      .location-content,
+      .cta-inner,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links a:not(.btn) { display: none; }
+      .cards { grid-template-columns: 1fr; }
+      .trust-row { grid-template-columns: 1fr; }
+      .map-wrap { min-height: 320px; }
+      .photo-card { min-height: 360px; }
+      .cta-inner { text-align: left; }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(100% - 1.15rem, var(--container)); }
+      .nav { padding: .65rem 0; }
+      .brand img { width: 46px; height: 46px; }
+      .brand strong { font-size: .9rem; }
+      .brand span { font-size: .66rem; }
+      .nav .btn { padding: .75rem .9rem; font-size: .9rem; }
+      .hero { padding-top: 1.35rem; }
+      h1 { font-size: clamp(2.25rem, 13vw, 3.7rem); }
+      .hero-card::before { display: none; }
+      .logo-strip { width: 78%; bottom: .9rem; }
+      .cards { gap: .8rem; }
+      .social-grid { grid-template-columns: 1fr; }
+      .credits { display: block; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "Dra. Gabriela Cechinatto Martins",
+    "description": "Odontopediatria e atendimento infantil em Balneário Camboriú.",
+    "telephone": "+55 47 99140-7236",
+    "email": "gabi.dentista@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua 901, 431 - Sala 704 - Edifício Central Park",
+      "addressLocality": "Balneário Camboriú",
+      "addressRegion": "SC",
+      "postalCode": "88330-902",
+      "addressCountry": "BR"
+    },
+    "sameAs": [
+      "https://instagram.com/dra.gabrielacechinatto",
+      "https://www.youtube.com/@dra.gabrielacechinatto"
+    ]
+  }
+  </script>
 </head>
 <body>
-<header>
-<img alt="icone logo" src="img/icone-logo.webp" fetchpriority="high"/>
-<div class="header__acoes">
-<a href="https://wa.me/5547991407236" style="text-decoration: none;" target="_blank">
-     Agende agora
-    </a>
-</div>
-</header>
-<main>
-<div class="banner-principal fade-slide">
-<img alt="Logo Dra. Gabriela Cechinatto" src="img/logo-gabi.webp"/>
-</div>
-<div class="section">
-<div class="img fade-slide">
-<img alt="Dra. Gabi" src="img/quem-sou-eu.webp"/>
-</div>
-<div class="content fade-slide">
-<h1>
-      Dentista de Criança
-      <br/>
-</h1>
-<p>
-      🦷 Ajudo os pequenos a criar bons hábitos
-      <br/>
-      🌈 Atendimento lúdico, sem traumas e inclusivo para crianças especiais
-     </p>
-</div>
-</div>
-<div class="redes fade-slide" id="localizacao">
-<h2>
-     Locais de Atendimento
-    </h2>
-<div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-<a href="https://maps.app.goo.gl/BFcAXvRS4qjjjVmT9" style="text-decoration: none;" target="_blank">
-<div style="background-color: #f9eadd; padding: 1rem; border-radius: 10px; text-align: center; width: 180px;">
-<div style="font-size: 1.5rem;">
-        📍
-       </div>
-<div style="color: #5c4435;">
-        Balneário
-        <br/>
-        Camboriú
-       </div>
-</div>
-</a>
-<a href="https://maps.app.goo.gl/CVrJEvSNspsb3PYN9" style="text-decoration: none;" target="_blank">
-<div style="background-color: #f9eadd; padding: 1rem; border-radius: 10px; text-align: center; width: 180px;">
-<div style="font-size: 1.5rem;">
-        📍
-       </div>
-<div style="color: #5c4435;">
-        Praia
-        <br/>
-        Brava
-       </div>
-</div>
-</a>
-</div>
-</div>
-<div class="redes fade-slide">
-<h2>
-     Agende seu atendimento
-    </h2>
-<p>
-     Entre em contato pelo WhatsApp e tire suas dúvidas
-    </p>
-<a class="botao-whatsapp" href="https://wa.me/5547991407236" style="text-decoration: none;" target="_blank">
-     Falar com a dra. Gabriela
-    </a>
-</div>
-<div class="redes fade-slide">
-<h2>
-     Siga-nos nas redes sociais
-    </h2>
-<div class="icones">
-<a href="https://instagram.com/dra.gabrielacechinatto" style="text-decoration: none;" target="_blank">
-<img alt="Instagram" src="img/icons/instagram-icon.png"/>
-</a>
-<a href="https://www.youtube.com/@dra.gabrielacechinatto" style="text-decoration: none;" target="_blank">
-<img alt="YouTube" src="img/icons/youtube-icon.png"/>
-</a>
-<!-- 
-        TODO: Verificar se o Facebook é necessário, se sim, adicionar a imagem no img/icons        
-        <a href="https://web.facebook.com/dra.gabrielacechinatto/about" target="_blank" style="text-decoration: none;">
-        <img src="img/icons/facebook-icon.png" alt="Facebook" />
-      </a> 
-      -->
-</div>
-</div>
-</main>
-<!-- Instagram Feed da Dra Gabi -->
-<section id="instagram">
-<script async="" src="https://static.elfsight.com/platform/platform.js"></script>
-<div class="elfsight-app-75af3fa5-6961-4728-8885-7cfb75dd7c6e" data-elfsight-app-lazy=""></div>
-<noscript><p><a href="https://instagram.com/dra.gabrielacechinatto">Siga a Dra. Gabriela no Instagram</a></p></noscript></section>
-<footer class="rodape">
-<div class="rodape__coluna">
-<h2 class="rodape__titulo">
-     Dra. Gabriela Cechinatto
-    </h2>
-</div>
-<div class="rodape__coluna">
-<h3>
-     Balneário Camboriú
-    </h3>
-<p>
-     Solar Grimaldi
-     <br/>
-     Rua 2400, 100
-     <br/>
-     Sala 105
-     <br/>
-     Balneário Camboriú, SC
-    </p>
-</div>
-<div class="rodape__coluna">
-<h3>
-     Praia Brava
-    </h3>
-<p>
-     Riviera Concept
-     <br/>
-     Av. Osvaldo Reis, 3385
-     <br/>
-     Sala 506
-     <br/>
-     Fazenda, Itajaí
-    </p>
-</div>
-<div class="rodape__coluna">
-<h3>
-     Contato
-    </h3>
-<p>
-<a href="https://wa.me/5547991407236" style="text-decoration: none;" target="_blank">
-      (47) 99140-7236
-     </a>
-<br/>
-     gabi.dentista@gmail.com
-    </p>
-</div>
-</footer>
-<!--  
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header>
+    <div class="container nav" aria-label="Navegação principal">
+      <a class="brand" href="#topo" aria-label="Página inicial da Dra. Gabriela Cechinatto">
+        <img src="img/icone-logo.webp" alt="Ícone da marca Gabriela Martins" width="54" height="54" fetchpriority="high" />
+        <span>
+          <strong>Dra. Gabriela Cechinatto</strong>
+          <span>Odontopediatria</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Links do site">
+        <a href="#sobre">Sobre</a>
+        <a href="#atendimento">Atendimento</a>
+        <a href="#localizacao">Localização</a>
+        <a class="btn" href="https://wa.me/5547991407236?text=Ol%C3%A1%2C%20Dra.%20Gabriela!%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Agendar agora</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="topo">
+      <div class="container hero-grid">
+        <div class="fade-slide">
+          <span class="eyebrow">Odontopediatria em Balneário Camboriú</span>
+          <h1>Dentista de criança com cuidado <span>leve e acolhedor.</span></h1>
+          <p class="lead">Atendimento infantil lúdico, inclusivo e pensado para que a criança se sinta segura desde a primeira consulta.</p>
+          <div class="hero-actions">
+            <a class="btn" href="https://wa.me/5547991407236?text=Ol%C3%A1%2C%20Dra.%20Gabriela!%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+            <a class="btn btn--ghost" href="#localizacao">Ver endereço</a>
+          </div>
+
+          <div class="trust-row" aria-label="Destaques do atendimento">
+            <div class="trust-item">
+              <strong>Atendimento infantil</strong>
+              <span>Consultas conduzidas com linguagem simples, carinho e respeito ao tempo da criança.</span>
+            </div>
+            <div class="trust-item">
+              <strong>Ambiente pensado para crianças</strong>
+              <span>Experiência acolhedora para reduzir medo e criar bons hábitos.</span>
+            </div>
+            <div class="trust-item">
+              <strong>Novo endereço exclusivo</strong>
+              <span>Agora em um único local: Edifício Central Park, no Centro de BC.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card fade-slide" aria-label="Fotos da Dra. Gabriela Cechinatto em atendimento odontopediátrico">
+          <div class="hero-carousel" aria-hidden="true">
+            <img src="img/quem-sou-eu.webp" alt="" width="1080" height="1080" />
+            <img src="img/atendimento-1.webp" alt="" width="828" height="1792" />
+            <img src="img/atendimento-2.webp" alt="" width="828" height="1792" />
+          </div>
+          <div class="logo-strip" aria-hidden="true">
+            <img src="img/logo-gabi.webp" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="atendimento">
+      <div class="container">
+        <div class="section-head fade-slide">
+          <h2>Um atendimento para a criança — <span>e para a família.</span></h2>
+          <p>Da primeira consulta aos cuidados preventivos, o objetivo é construir confiança, orientar os responsáveis e transformar a ida ao dentista em uma experiência mais tranquila.</p>
+        </div>
+
+        <div class="cards">
+          <article class="service-card fade-slide">
+            <div class="service-icon" aria-hidden="true">🦷</div>
+            <h3>Primeira consulta infantil</h3>
+            <p>Avaliação, orientação aos responsáveis e adaptação da criança ao ambiente odontológico.</p>
+          </article>
+
+          <article class="service-card fade-slide">
+            <div class="service-icon" aria-hidden="true">✨</div>
+            <h3>Prevenção e bons hábitos</h3>
+            <p>Profilaxia, higiene orientada, aplicação de flúor quando indicada e acompanhamento do desenvolvimento oral.</p>
+          </article>
+
+          <article class="service-card fade-slide">
+            <div class="service-icon" aria-hidden="true">🌈</div>
+            <h3>Cuidado inclusivo</h3>
+            <p>Atendimento acolhedor para crianças que precisam de mais tempo, previsibilidade e adaptação.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container about-grid">
+        <div class="photo-card fade-slide">
+          <img src="img/quem-sou-eu.webp" alt="Dra. Gabriela Cechinatto em ambiente clínico" loading="lazy" />
+        </div>
+
+        <div class="about-card fade-slide">
+          <h2>Quem é a <span>Dra. Gabriela?</span></h2>
+          <p>Dra. Gabriela Cechinatto Martins é odontopediatra e atende crianças em Balneário Camboriú com uma abordagem lúdica, cuidadosa e próxima da família.</p>
+          <p>O foco do atendimento é criar uma relação positiva com a saúde bucal desde cedo, respeitando o ritmo de cada criança.</p>
+          <ul class="about-list">
+            <li>Odontopediatria com comunicação simples e acolhedora.</li>
+            <li>Orientações práticas para prevenção em casa.</li>
+            <li>Atendimento infantil em endereço único no Centro de Balneário Camboriú.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="localizacao">
+      <div class="container">
+        <div class="location-card fade-slide">
+          <div class="location-content">
+            <div class="location-info">
+              <span class="badge">📍 Endereço único e exclusivo</span>
+              <h2>Agora em um novo local no Centro de Balneário Camboriú.</h2>
+              <address class="address">
+                <strong>Edifício Central Park</strong><br />
+                Rua 901, 431 — Sala 704<br />
+                Centro, Balneário Camboriú — SC<br />
+                CEP 88330-902
+              </address>
+              <div class="hero-actions">
+                <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Edif%C3%ADcio%20Central%20Park%20Rua%20901%20431%20Sala%20704%20Centro%20Balne%C3%A1rio%20Cambori%C3%BA%20SC%2088330-902" target="_blank" rel="noopener">Abrir no Google Maps</a>
+                <a class="btn btn--ghost" href="https://wa.me/5547991407236?text=Ol%C3%A1%2C%20Dra.%20Gabriela!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20no%20novo%20endere%C3%A7o." target="_blank" rel="noopener">Tirar dúvidas</a>
+              </div>
+            </div>
+
+            <div class="map-wrap" aria-label="Resumo da localização">
+              <div class="map-card">
+                <img src="img/icone-logo.webp" alt="Ícone Gabriela Martins" loading="lazy" />
+                <strong>Atendimento em Balneário Camboriú</strong>
+                <p>Todos os atendimentos são realizados no Edifício Central Park.</p>
+                <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&query=Edif%C3%ADcio%20Central%20Park%20Rua%20901%20431%20Sala%20704%20Centro%20Balne%C3%A1rio%20Cambori%C3%BA%20SC%2088330-902" target="_blank" rel="noopener">Como chegar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta fade-slide">
+          <div class="cta-inner">
+            <div>
+              <h2>Quer agendar uma consulta?</h2>
+              <p>Chame a Dra. Gabriela no WhatsApp para verificar disponibilidade de agenda, tirar dúvidas e receber orientações para a primeira consulta.</p>
+            </div>
+            <a class="btn" href="https://wa.me/5547991407236?text=Ol%C3%A1%2C%20Dra.%20Gabriela!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="redes-titulo">
+      <div class="container">
+        <div class="section-head fade-slide">
+          <h2 id="redes-titulo">Acompanhe nas <span>redes sociais.</span></h2>
+          <p>Conteúdos sobre saúde bucal infantil, rotina de consultório e orientações para famílias.</p>
+        </div>
+        <div class="social-grid">
+          <a class="social-card fade-slide" href="https://instagram.com/dra.gabrielacechinatto" target="_blank" rel="noopener">
+            <img src="img/icons/instagram-icon.png" alt="Instagram" loading="lazy" />
+            <span><strong>Instagram</strong><span>@dra.gabrielacechinatto</span></span>
+          </a>
+          <a class="social-card fade-slide" href="https://www.youtube.com/@dra.gabrielacechinatto" target="_blank" rel="noopener">
+            <img src="img/icons/youtube-icon.png" alt="YouTube" loading="lazy" />
+            <span><strong>YouTube</strong><span>Dra. Gabriela Cechinatto</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="instagram" aria-label="Feed do Instagram da Dra. Gabriela">
+      <script async src="https://static.elfsight.com/platform/platform.js"></script>
+      <div class="elfsight-app-75af3fa5-6961-4728-8885-7cfb75dd7c6e" data-elfsight-app-lazy></div>
+      <noscript><p><a href="https://instagram.com/dra.gabrielacechinatto">Siga a Dra. Gabriela no Instagram</a></p></noscript>
+    </section>
+  </main>
+
   <footer>
-    <p>Dra. Gabriela Cechinatto</p>
-    <p>Balneário Camboriú | Praia Brava </p>
-    <p>Solar Grimaldi<br>Rua 2400, 100<br>Sala 05<br>Centro, BC | Riviera Concept<br>Av. Osvaldo Reis, 3385<br>Sala 506 <br>Fazenda, Itajaí</p>
-    <p>gabi.dentista@gmail.com | <a href="https://wa.me/5547991407236" target="_blank" style="text-decoration: none;">(47) 99140-7236</a></p>
+    <div class="container footer-grid">
+      <div class="footer-logo">
+        <img src="img/logo-gabi.webp" alt="Gabriela Martins Odontopediatria CRO/SC 22258" loading="lazy" />
+        <p>Odontopediatria em Balneário Camboriú — SC.</p>
+      </div>
+      <div>
+        <h3>Endereço</h3>
+        <address>
+          Edifício Central Park<br />
+          Rua 901, 431 — Sala 704<br />
+          Centro, Balneário Camboriú — SC<br />
+          CEP 88330-902
+        </address>
+      </div>
+      <div>
+        <h3>Contato</h3>
+        <p><a href="https://wa.me/5547991407236" target="_blank" rel="noopener">(47) 99140-7236</a></p>
+        <p><a href="mailto:gabi.dentista@gmail.com">gabi.dentista@gmail.com</a></p>
+        <p><a href="https://instagram.com/dra.gabrielacechinatto" target="_blank" rel="noopener">@dra.gabrielacechinatto</a></p>
+      </div>
+    </div>
+    <div class="container credits">
+      <span>© <span id="year"></span> Dra. Gabriela Cechinatto Martins. Todos os direitos reservados.</span>
+      <span>CRO/SC 22258</span>
+    </div>
   </footer>
--->
-<script>
-   const observers = document.querySelectorAll('.fade-slide');
-  const onScroll = () => {
-    observers.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 50) {
-        el.classList.add('visible');
-      }
-    });
-  };
-  window.addEventListener('scroll', onScroll);
-  window.addEventListener('load', onScroll);
+
+  <script>
+    const fadeItems = document.querySelectorAll('.fade-slide');
+
+    const reveal = () => {
+      fadeItems.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) {
+          el.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', reveal, { passive: true });
+    window.addEventListener('load', reveal);
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
